@@ -8,28 +8,34 @@ div {
 	background-color: rgb(245, 240, 230);
 	scroll-margin-top: 93px;
 }
-#section1 p {
+p {
 	font-size: 28px;
 	margin: 10px;
 
 }
-#section1 h2 {
+#section1-img {
+	max-width: 100%;
+	margin: 10px;
+}
+
+h2 {
 	margin: 10px;
 }
 
 #section2 h2 {
 	color: white;
-	margin: 10px;
 }
 #section2 p {
 	color: white;
-	font-size: 28px;
-	margin: 10px;
 }
 #section2 {
 	background-image: url('https://www.ucsd.edu/_resources/img/bg-orbs-1.jpg');
 	scroll-margin-top: 46.5px;
 
+}
+#section2-img {
+	max-width: 100%;
+	margin: 10px;
 }
 
 #navbar {
@@ -49,13 +55,14 @@ ul {
 li {
 	float: left;
 }
-  
+
 li a {
 	display: block;
 	color: #182b49;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
+
 }
   
   /* Change the link color to #111 (black) on hover */
@@ -69,15 +76,17 @@ body {
 }
 
 #top-navbar-logo {
-	max-width: 400px;
+	max-width: 100%;
 }
 
 .grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 25px;
-	max-height:500px;
-	overflow: scroll;
+	width: 100%;
+	box-sizing: border-box;
+	padding:10px;
+	
   }
   .one {
 	grid-column: 1;
@@ -85,6 +94,9 @@ body {
 	background-color: #182b49;
 	color: white;
 	max-height: 500px;
+	font-size: 28px;
+	overflow: scroll;
+
   }
   .two {
 	grid-column: 2;
@@ -92,6 +104,8 @@ body {
 	background-color: #182b49;
 	color: white;
 	max-height: 500px;
+	font-size: 28px;
+	overflow: scroll;
 
   }
   .three {
@@ -100,6 +114,8 @@ body {
 	background-color: #182b49;
 	color: white;
 	max-height: 500px;
+	font-size: 28px;
+	overflow: scroll;
 
   }
   .four {
@@ -108,6 +124,8 @@ body {
 	background-color: #182b49;
 	color: white;
 	max-height: 500px;
+	font-size: 28px;
+	overflow: scroll;
 
   }
 
@@ -115,11 +133,65 @@ body {
 	background-color: rgb(245, 240, 230);
 	scroll-margin-top: 93px;
 }
-#section3 p {
-	font-size: 28px;
-	margin: 10px;
 
-}
-#section3 h2 {
-	margin: 10px;
+
+
+@media screen and (max-width: 800px) {
+	li a {
+		display: none;
+	}
+
+	#top-navbar-logo {
+		max-width: 75%;
+	}
+
+	h2 {
+		font-size: 24px;
+	}
+
+	p {
+		font-size: 20px;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 25px;
+		max-height:500px;
+		overflow: scroll;
+		font-size:20px;
+	  }
+	  .one {
+		grid-column: 1;
+		grid-row: 1;
+		background-color: #182b49;
+		color: white;
+		max-height: 500px;
+		font-size:20px;
+	  }
+	  .two {
+		grid-column: 2;
+		grid-row: 1;
+		background-color: #182b49;
+		color: white;
+		max-height: 500px;
+		font-size:20px;
+	
+	  }
+	  .three {
+		grid-column: 1;
+		grid-row: 2;
+		background-color: #182b49;
+		color: white;
+		max-height: 500px;
+		font-size:20px;
+	  }
+	  .four {
+		grid-column: 2;
+		grid-row: 2;
+		background-color: #182b49;
+		color: white;
+		max-height: 500px;
+		font-size:20px;
+	  }
 }
