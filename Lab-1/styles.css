@@ -6,7 +6,7 @@ div {
 
 #section1 {
 	background-color: rgb(245, 240, 230);
-	scroll-margin-top: 46.5px;
+	scroll-margin-top: 164px;
 	display: inline-block;
 
 }
@@ -35,7 +35,7 @@ h2 {
 }
 #section2 {
 	background-image: url('https://www.ucsd.edu/_resources/img/bg-orbs-1.jpg');
-	scroll-margin-top: 46.5px;
+	scroll-margin-top: 164px;
 	display: inline-block;
 
 }
@@ -114,7 +114,7 @@ body {
 
 #section3 {
 	background-color: rgb(245, 240, 230);
-	scroll-margin-top: 46.5px;
+	scroll-margin-top: 164px;
 	display: inline-block;
 
 }
