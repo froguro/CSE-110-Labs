@@ -7,19 +7,24 @@ div {
 #section1 {
 	background-color: rgb(245, 240, 230);
 	scroll-margin-top: 93px;
+	display: inline-block;
+
 }
 p {
 	font-size: 28px;
-	margin: 10px;
+	margin: 20px;
 
 }
 #section1-img {
 	max-width: 100%;
-	margin: 10px;
+	margin: 20px;
 }
 
 h2 {
-	margin: 10px;
+	margin: 20px;
+	font-size: 28px;
+	display: inline-block;
+	margin-top: 28px;
 }
 
 #section2 h2 {
@@ -31,17 +36,19 @@ h2 {
 #section2 {
 	background-image: url('https://www.ucsd.edu/_resources/img/bg-orbs-1.jpg');
 	scroll-margin-top: 46.5px;
+	display: inline-block;
 
 }
 #section2-img {
 	max-width: 100%;
-	margin: 10px;
+	margin: 20px;
 }
 
 #navbar {
 	position: sticky;
 	top: 0;
   	background-color: white;
+	padding: 20px;
 }
 
 ul {
@@ -62,10 +69,10 @@ li a {
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
+	font-size: 28px;
 
 }
   
-  /* Change the link color to #111 (black) on hover */
 li a:hover {
 	background-color: #182b49;
 	color: white;
@@ -73,10 +80,12 @@ li a:hover {
 
 body {
 	margin:0;
+	width: 100%;
+	overflow-x: hidden;
 }
 
 #top-navbar-logo {
-	max-width: 100%;
+	max-width: 400px;
 }
 
 .grid {
@@ -85,53 +94,27 @@ body {
 	gap: 25px;
 	width: 100%;
 	box-sizing: border-box;
-	padding:10px;
+	padding:20px;
 	
   }
-  .one {
-	grid-column: 1;
-	grid-row: 1;
+  .one, .two, .three, .four {
+	display: flex;
+	justify-content: center;  /* Center horizontally */
+	align-items: center;      /* Center vertically */
 	background-color: #182b49;
 	color: white;
 	max-height: 500px;
 	font-size: 28px;
+	padding: 25px;            /* Add padding for gap */
 	overflow: scroll;
-
-  }
-  .two {
-	grid-column: 2;
-	grid-row: 1;
-	background-color: #182b49;
-	color: white;
-	max-height: 500px;
-	font-size: 28px;
-	overflow: scroll;
-
-  }
-  .three {
-	grid-column: 3;
-	grid-row: 1;
-	background-color: #182b49;
-	color: white;
-	max-height: 500px;
-	font-size: 28px;
-	overflow: scroll;
-
-  }
-  .four {
-	grid-column: 4;
-	grid-row: 1;
-	background-color: #182b49;
-	color: white;
-	max-height: 500px;
-	font-size: 28px;
-	overflow: scroll;
-
-  }
+	box-sizing: border-box;   /* Ensure padding is included in the height */
+}
 
 #section3 {
 	background-color: rgb(245, 240, 230);
 	scroll-margin-top: 93px;
+	display: inline-block;
+
 }
 
 
