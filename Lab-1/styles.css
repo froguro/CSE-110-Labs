@@ -6,7 +6,7 @@ div {
 
 #section1 {
 	background-color: rgb(245, 240, 230);
-	scroll-margin-top: 93px;
+	scroll-margin-top: 46.5px;
 	display: inline-block;
 
 }
@@ -50,7 +50,7 @@ h2 {
   	background-color: white;
 	padding: 20px;
 	padding-bottom: 0;
-
+	margin: 0;
 }
 
 ul {
@@ -84,6 +84,7 @@ body {
 	margin:0;
 	width: 100%;
 	overflow-x: hidden;
+	
 }
 
 #top-navbar-logo {
@@ -102,7 +103,6 @@ body {
   .one, .two, .three, .four {
 	display: flex;
 	justify-content: center;  /* Center horizontally */
-	align-items: center;      /* Center vertically */
 	background-color: #182b49;
 	color: white;
 	max-height: 500px;
@@ -114,7 +114,7 @@ body {
 
 #section3 {
 	background-color: rgb(245, 240, 230);
-	scroll-margin-top: 93px;
+	scroll-margin-top: 46.5px;
 	display: inline-block;
 
 }
@@ -122,7 +122,7 @@ body {
 
 
 @media screen and (max-width: 800px) {
-	li a {
+	ul {
 		display: none;
 	}
 
@@ -130,6 +130,11 @@ body {
 		max-width: 75%;
 	}
 
+	#navbar {
+		position: sticky;
+		top: 0;
+		background-color: white;
+	}
 	h2 {
 		font-size: 24px;
 	}
@@ -142,41 +147,19 @@ body {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 25px;
-		max-height:500px;
+		width: 100%;
+		box-sizing: border-box;
+		padding:20px;
+	  }
+	  .one, .two, .three, .four {
+		display: flex;
+		justify-content: center;  
+		background-color: #182b49;
+		color: white;
+		max-height: 500px;
+		font-size: 20px;
+		padding: 10px;            
 		overflow: scroll;
-		font-size:20px;
-	  }
-	  .one {
-		grid-column: 1;
-		grid-row: 1;
-		background-color: #182b49;
-		color: white;
-		max-height: 500px;
-		font-size:20px;
-	  }
-	  .two {
-		grid-column: 2;
-		grid-row: 1;
-		background-color: #182b49;
-		color: white;
-		max-height: 500px;
-		font-size:20px;
-	
-	  }
-	  .three {
-		grid-column: 1;
-		grid-row: 2;
-		background-color: #182b49;
-		color: white;
-		max-height: 500px;
-		font-size:20px;
-	  }
-	  .four {
-		grid-column: 2;
-		grid-row: 2;
-		background-color: #182b49;
-		color: white;
-		max-height: 500px;
-		font-size:20px;
-	  }
+		box-sizing: border-box;   
+	}
 }
