@@ -49,6 +49,8 @@ h2 {
 	top: 0;
   	background-color: white;
 	padding: 20px;
+	padding-bottom: 0;
+
 }
 
 ul {
