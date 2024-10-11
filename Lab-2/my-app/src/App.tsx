@@ -50,6 +50,17 @@ function App() {
     setCurrentTheme(currentTheme === themes.light ? themes.dark : themes.light);
   }
 
+  const handleNoteUpdate = (
+    noteId: number,
+    field: "title" | "content" | "label",
+    value: string
+  ) => {
+    const updatedNotes = notes.map((note) =>
+      note.id === noteId ? { ...note, [field]: value } : note
+    );
+    setNotes(updatedNotes);
+  };
+
   return (
     <ThemeContext.Provider value={currentTheme}>
     <div className='app-container'>
@@ -99,9 +110,27 @@ function App() {
               />
               <button>x</button>
             </div>
-            <h2> {note.title} </h2>
-            <p> {note.content} </p>
-            <p> {note.label} </p>
+            <h2 contentEditable="true"
+            suppressContentEditableWarning={true}
+            onBlur={(event) =>
+              handleNoteUpdate(note.id, "title", event.target.innerText)
+            }> 
+              {note.title} 
+            </h2>
+            <p contentEditable="true"
+            suppressContentEditableWarning={true}
+            onBlur={(event) =>
+              handleNoteUpdate(note.id, "content", event.target.innerText)
+            }> 
+              {note.content} 
+            </p>
+            <p contentEditable="true"
+            suppressContentEditableWarning={true}
+            onBlur={(event) =>
+              handleNoteUpdate(note.id, "label", event.target.innerText)
+            }> 
+              {note.label} 
+            </p>
           </div>
         ))}
       </div>
