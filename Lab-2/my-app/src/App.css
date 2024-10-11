@@ -50,8 +50,15 @@
 
 .note-form {
   display: "flex";
-  border: 1px solid black;
+  border: none;
   flex-direction: column;
+}
+
+.note-form input, 
+.note-form textarea,
+.note-form select,
+.note-form button {
+  width: 90%;
 }
 
 body {
