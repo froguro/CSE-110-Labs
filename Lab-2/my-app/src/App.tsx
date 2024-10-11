@@ -34,7 +34,7 @@ function App() {
 
     const newNote = {
       ...createNote,
-      id: notes.length + 1
+      id: notes.length + 2
     };
 
     setNotes([...notes, newNote]);
@@ -59,6 +59,13 @@ function App() {
       note.id === noteId ? { ...note, [field]: value } : note
     );
     setNotes(updatedNotes);
+  };
+
+  const handleDelete = (noteId: number) => {
+    const updatedNotes = notes.filter((note) => note.id !== noteId);
+    setNotes(updatedNotes);
+
+    setFavorites((prevFavorites) => prevFavorites.filter((id) => id !== noteId));
   };
 
   return (
@@ -108,7 +115,7 @@ function App() {
                 isFavorited={favorites.includes(note.id)}
                 toggleFavorite={() => toggleFavorite(note.id)}
               />
-              <button>x</button>
+              <button onClick={() => handleDelete(note.id)}>x</button>
             </div>
             <h2 contentEditable="true"
             suppressContentEditableWarning={true}
