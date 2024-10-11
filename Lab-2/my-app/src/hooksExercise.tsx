@@ -34,7 +34,7 @@ export function ClickCounter() {
 }
 
 // Wrapper component to provide context
-function ToggleTheme() {
+export function ToggleTheme() {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
  
   const toggleTheme = () => {
@@ -49,7 +49,6 @@ function ToggleTheme() {
   );
  }
  
-export default ToggleTheme;
 
 interface HeartButtonProps {
   isFavorited: boolean;
@@ -63,4 +62,3 @@ export function HeartButton({ isFavorited, toggleFavorite }: HeartButtonProps) {
     </button>
   );
 }
-

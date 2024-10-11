@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Label, Note } from "./types"; // Import the Label type from the appropriate module
 import { dummyNotesList } from "./constants"; // Import the dummyNotesList from the appropriate module
-import { ClickCounter, HeartButton } from "./hooksExercise";
+import { ClickCounter, HeartButton, ToggleTheme } from "./hooksExercise";
+import { ThemeContext, themes } from "./themeContext";
 
 function App() {
 
@@ -28,7 +29,29 @@ function App() {
   };
   const [createNote, setCreateNote] = useState(initialNote);
     
+  const createNoteHandler = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const newNote = {
+      ...createNote,
+      id: notes.length + 1
+    };
+
+    setNotes([...notes, newNote]);
+
+    setCreateNote(initialNote);
+  }
+
+  const theme = useContext(ThemeContext);
+
+  const [currentTheme, setCurrentTheme] = useState(themes.light);
+
+  const toggleTheme = () => {
+    setCurrentTheme(currentTheme === themes.light ? themes.dark : themes.light);
+  }
+
   return (
+    <ThemeContext.Provider value={currentTheme}>
     <div className='app-container'>
   	<form className="note-form" onSubmit={createNoteHandler}>
     	<div>
@@ -51,7 +74,7 @@ function App() {
     <div>
      	<select
        	onChange={(event) =>
-         	setCreateNote({ ...createNote, label: event.target.value })}
+         	setCreateNote({ ...createNote, label: event.target.value as Label})}
        	required>
        	<option value={Label.personal}>Personal</option>
        	<option value={Label.study}>Study</option>
@@ -67,6 +90,7 @@ function App() {
       	<div
         	key={note.id}
         	className="note-item"
+          style={{ background: currentTheme.background, color: currentTheme.foreground }}
       	>
         	<div className="notes-header">
               <HeartButton
@@ -84,14 +108,16 @@ function App() {
       <div className="favorites-list">
         <h2>List of Favorites:</h2>
         <ul>
-          {dummyNotesList
+          {notes
             .filter((note) => favorites.includes(note.id)) // Filter the favorited notes
             .map((favoriteNote) => (
               <ul key={favoriteNote.id}>{favoriteNote.title}</ul>
             ))}
         </ul>
       </div>
+      <button onClick={toggleTheme}> Toggle Theme </button>
     </div>
+    </ThemeContext.Provider>
   );
 }
 
