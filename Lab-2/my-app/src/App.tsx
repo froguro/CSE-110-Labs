@@ -71,13 +71,15 @@ function App() {
   return (
     <ThemeContext.Provider value={currentTheme}>
     <div className='app-container'>
-  	<form className="note-form" onSubmit={createNoteHandler}>
+  	<form className="note-form" onSubmit={createNoteHandler} >
     	<div>
       	<input
         	placeholder="Note Title"
         	onChange={(event) =>
           	setCreateNote({ ...createNote, title: event.target.value })}
+          style={{ background: currentTheme.background, color: currentTheme.foreground }}
         	required>
+          
       	</input>
     	</div>
 
@@ -85,6 +87,7 @@ function App() {
       	<textarea
         	onChange={(event) =>
           	setCreateNote({ ...createNote, content: event.target.value })}
+          style={{ background: currentTheme.background, color: currentTheme.foreground }}
         	required>
       	</textarea>
     	</div>
@@ -93,6 +96,7 @@ function App() {
      	<select
        	onChange={(event) =>
          	setCreateNote({ ...createNote, label: event.target.value as Label})}
+        style={{ background: currentTheme.background, color: currentTheme.foreground }}
        	required>
        	<option value={Label.personal}>Personal</option>
        	<option value={Label.study}>Study</option>
@@ -101,7 +105,7 @@ function App() {
      	</select>
    	</div>
 
-    	<div><button type="submit">Create Note</button></div>
+    	<div><button type="submit" style={{ background: currentTheme.background, color: currentTheme.foreground }} >Create Note</button></div>
   	</form>
     <div className="notes-grid">
     	{notes.map((note) => (
