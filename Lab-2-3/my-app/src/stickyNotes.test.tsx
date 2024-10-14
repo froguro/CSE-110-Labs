@@ -1,5 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { StickyNotes } from "./stickyNotes";
+import { dummyNotesList } from "./constants";
+import userEvent from "@testing-library/user-event";
+
 describe("Create StickyNote", () => {
   test("renders create note form", () => {
     render(<StickyNotes />);
@@ -29,4 +32,59 @@ describe("Create StickyNote", () => {
     expect(newNoteTitle).toBeInTheDocument();
     expect(newNoteContent).toBeInTheDocument();
   });
+});
+
+
+describe("Read StickyNote", () => {
+    test("notes that are created should be displayed on the page", () => {
+      render(<StickyNotes />);
+      dummyNotesList.map((note) => {
+        const testNoteTitle = screen.getByText(`${note.title}`);
+        expect(testNoteTitle).toBeInTheDocument();
+      })
+    });
+});
+
+describe("Update Stickynote", () => {
+    test("Once the update is done, is the document object value updating", async () => {
+      render(<StickyNotes />);
+      const noteTitle1 = screen.getByText("test note 1 title");
+      await userEvent.click(noteTitle1);
+      await userEvent.keyboard("abc");
+      const updatedNoteTitle1 = screen.getByText("test note 1 titleabc");
+      expect(updatedNoteTitle1).toBeInTheDocument();
+    })
+});
+
+describe("Update Stickynote", () => {
+    test("Once the update is done, is the document object value updating", async () => {
+      render(<StickyNotes />);
+      const noteTitle1 = screen.getByText("test note 1 title");
+      await userEvent.click(noteTitle1);
+      await userEvent.keyboard("abc");
+      const updatedNoteTitle1 = screen.getByText("test note 1 titleabc");
+      expect(updatedNoteTitle1).toBeInTheDocument();
+    })
+});
+
+describe("Update Stickynote", () => {
+    test("Once the update is done, is the document object value updating", async () => {
+      render(<StickyNotes />);
+      const noteTitle1 = screen.getByText("test note 1 title");
+      await userEvent.click(noteTitle1);
+      await userEvent.keyboard("abc");
+      const updatedNoteTitle1 = screen.getByText("test note 1 titleabc");
+      expect(updatedNoteTitle1).toBeInTheDocument();
+    })
+});
+
+describe("Delete Stickynote", () => {
+    test("Does the note get filtered out once the `x` button is pressed", () => {
+        render(<StickyNotes />);
+        const deleteButton = screen.getByTestId('delete-button-1');
+        expect(deleteButton).toBeInTheDocument();
+        fireEvent.click(deleteButton);
+        const noteTitle1 = screen.queryByText("test note 1 title");
+        expect(noteTitle1).not.toBeInTheDocument();
+    });
 });

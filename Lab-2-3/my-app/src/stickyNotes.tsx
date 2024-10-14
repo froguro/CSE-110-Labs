@@ -120,7 +120,7 @@ export const StickyNotes = () => {
                 isFavorited={favorites.includes(note.id)}
                 toggleFavorite={() => toggleFavorite(note.id)}
               />
-              <button onClick={() => handleDelete(note.id)}>x</button>
+              <button id={`delete-${note.id}`} data-testid={`delete-button-${note.id}`} onClick={() => handleDelete(note.id)}>x</button>
             </div>
             <h2 contentEditable="true"
             suppressContentEditableWarning={true}
