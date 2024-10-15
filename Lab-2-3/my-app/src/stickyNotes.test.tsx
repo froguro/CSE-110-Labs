@@ -88,3 +88,34 @@ describe("Delete Stickynote", () => {
         expect(noteTitle1).not.toBeInTheDocument();
     });
 });
+
+
+describe("edge cases", () => {
+  test("Does creating multiple notes mean t", () => {
+    render(<StickyNotes />);
+
+    const arrayOfNotes = ["Note1", "Note2", "Note3"]
+    // Please make sure your sticky note has a title and content input field with the following placeholders.
+    arrayOfNotes.map((noteTitle) => {
+      const createNoteTitleInput = screen.getByPlaceholderText("Note Title");
+      const createNoteButton = screen.getByText("Create Note");
+      fireEvent.change(createNoteTitleInput, { target: { value: noteTitle } });
+      fireEvent.click(createNoteButton);
+      const newNoteTitle = screen.getByText(noteTitle);
+      expect(newNoteTitle).toBeInTheDocument();
+      })
+    
+  })
+  
+  test("Can there be 0 sticky notes?", () => {
+    render(<StickyNotes />);
+    const deleteButtons = screen.getAllByText("x");
+    deleteButtons.forEach(button => {
+      fireEvent.click(button);
+    });
+    dummyNotesList.forEach(note => {
+      const noteTitle = screen.queryByText(note.title);
+      expect(noteTitle).not.toBeInTheDocument();
+    });
+  });
+});
