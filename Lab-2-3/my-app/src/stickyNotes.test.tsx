@@ -69,11 +69,10 @@ describe("Delete Stickynote", () => {
 
 
 describe("edge cases", () => {
-  test("Does creating multiple notes mean t", () => {
+  test("creating multiple notes", () => {
     render(<StickyNotes />);
 
     const arrayOfNotes = ["Note1", "Note2", "Note3"]
-    // Please make sure your sticky note has a title and content input field with the following placeholders.
     arrayOfNotes.map((noteTitle) => {
       const createNoteTitleInput = screen.getByPlaceholderText("Note Title");
       const createNoteButton = screen.getByText("Create Note");
