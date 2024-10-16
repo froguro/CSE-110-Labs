@@ -56,28 +56,6 @@ describe("Update Stickynote", () => {
     })
 });
 
-describe("Update Stickynote", () => {
-    test("Once the update is done, is the document object value updating", async () => {
-      render(<StickyNotes />);
-      const noteTitle1 = screen.getByText("test note 1 title");
-      await userEvent.click(noteTitle1);
-      await userEvent.keyboard("abc");
-      const updatedNoteTitle1 = screen.getByText("test note 1 titleabc");
-      expect(updatedNoteTitle1).toBeInTheDocument();
-    })
-});
-
-describe("Update Stickynote", () => {
-    test("Once the update is done, is the document object value updating", async () => {
-      render(<StickyNotes />);
-      const noteTitle1 = screen.getByText("test note 1 title");
-      await userEvent.click(noteTitle1);
-      await userEvent.keyboard("abc");
-      const updatedNoteTitle1 = screen.getByText("test note 1 titleabc");
-      expect(updatedNoteTitle1).toBeInTheDocument();
-    })
-});
-
 describe("Delete Stickynote", () => {
     test("Does the note get filtered out once the `x` button is pressed", () => {
         render(<StickyNotes />);
